@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Edit Patient</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Edit Patient</h2>
+
+      <form method="POST">
+        <label>Full Name</label>
+
+        <input
+          type="text"
+          name="full_name"
+          value="{{ patient.full_name }}"
+          required
+        />
+
+        <label>Date of Birth</label>
+
+        <input type="date" name="dob" value="{{ patient.dob }}" required />
+
+        <label>Email Address</label>
+
+        <input type="email" name="email" value="{{ patient.email }}" required />
+
+        <label>Glucose</label>
+
+        <input
+          type="number"
+          step="0.1"
+          name="glucose"
+          value="{{ patient.glucose }}"
+          required
+        />
+
+        <label>Haemoglobin</label>
+
+        <input
+          type="number"
+          step="0.1"
+          name="haemoglobin"
+          value="{{ patient.haemoglobin }}"
+          required
+        />
+
+        <label>Cholesterol</label>
+
+        <input
+          type="number"
+          step="0.1"
+          name="cholesterol"
+          value="{{ patient.cholesterol }}"
+          required
+        />
+
+        <button type="submit">Update</button>
+
+        <a href="/" class="back-btn">Back</a>
+      </form>
+    </div>
+  </body>
+</html>
