@@ -66,7 +66,7 @@ def add_patient():
         cholesterol = request.form['cholesterol']
 
         # Email validation
-        if "@" not in email:
+        if '@' not in email or '.' not in email:
             return "Invalid Email Address"
 
         # DOB validation
