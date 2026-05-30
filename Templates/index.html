@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Health Prediction App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Health Prediction Application</h1>
+
+    <a href="/add">Add Patient</a>
+
+    <table border="1">
+      <tr>
+        <th>Full Name</th>
+        <th class="dob-col">Date of Birth</th>
+        <th>Email</th>
+        <th>Glucose</th>
+        <th>Haemoglobin</th>
+        <th>Cholesterol</th>
+        <th>Remarks</th>
+        <th>Actions</th>
+      </tr>
+
+      {% for patient in patients %}
+
+      <tr>
+        <td>{{ patient.full_name }}</td>
+        <td class="dob-col">{{ patient.dob }}</td>
+        <td>{{ patient.email }}</td>
+        <td>{{ patient.glucose }}</td>
+        <td>{{ patient.haemoglobin }}</td>
+        <td>{{ patient.cholesterol }}</td>
+        <td>{{ patient.remarks }}</td>
+
+        <td class="actions">
+          <a href="/edit/{{ patient.id }}" class="edit-btn">Edit</a>
+          <a href="/delete/{{ patient.id }}" class="delete-btn">Delete</a>
+        </td>
+      </tr>
+
+      {% endfor %}
+    </table>
+  </body>
+</html>
